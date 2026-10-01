@@ -1,0 +1,106 @@
+apiVersion: digital-employee/v1
+kind: DigitalEmployee
+metadata:
+  id: de_indie_finance_tax_assistant
+  name: 财税合规助理
+  alias: null
+  repo: de-indie-finance-tax-assistant
+  card_no: 4.4.7
+  group: indie
+  group_label: 独立开发者
+  phase: P2
+  complexity: S-M
+  score: 18
+  price: ¥29-69/月——低频刚需，单卖弱、捆绑强
+  channels:
+  - GitHub
+  - 闲鱼
+  - 淘宝
+  license: Proprietary
+  version: 1.0.0
+spec:
+  positioning: 一人公司的"合规哨兵"：节点不遗漏、文档不踩坑
+  users: 个体户/OPC 形态的全体独立开发者，尤其有跨境收款者
+  boundary: 做：流水整理、报税节点提醒、合规文档模板生成、政策解读摘要；不做：代理记账、出具任何具有法律效力的意见（必附"非专业法律/税务意见"声明）
+  kpi: 报税/备案节点零遗漏；合规文档生成采纳率；政策变动 48h 内解读推送
+  roi_summary: 防漏报罚款 + 月省 3-5h，作为全家桶信任组件拉高续费
+  demand_refs:
+  - D03
+  demand_support: 弱
+  demand_evidence: 中｜D 表内仅沾边 D03（流水整理环节），主依据为 S4 工商财税场景（低）+ 群体痛点；维持 P2 捆绑定位
+runtime:
+  system_prompt: persona/system-prompt.md
+  boundary: persona/boundary.md
+  kpi: persona/kpi.md
+deliverables:
+  skills:
+  - slug: crossborder-tax-faq
+    name: 跨境税务 FAQ
+    kind: private
+    path: skills/crossborder-tax-faq
+    version: 1.0.0
+    maturity: contract-complete
+  - slug: invoice-classify
+    name: 发票归类
+    kind: private
+    path: skills/invoice-classify
+    version: 1.0.0
+    maturity: implemented
+  - slug: privacy-policy-generator
+    name: 隐私政策生成
+    kind: private
+    path: skills/privacy-policy-generator
+    version: 1.0.0
+    maturity: contract-complete
+  - slug: promo-policy-matcher
+    name: 优惠政策匹配
+    kind: private
+    path: skills/promo-policy-matcher
+    version: 1.0.0
+    maturity: contract-complete
+  - slug: statement-organize
+    name: 流水整理
+    kind: private
+    path: skills/statement-organize
+    version: 1.0.0
+    maturity: implemented
+  workflows:
+  - slug: wf-indie-finance-monthly-ledger
+    name: 收入流水整理
+    path: workflows/wf-indie-finance-monthly-ledger
+    version: 1.0.0
+    phase: P2
+    calls:
+    - invoice-classify
+    - statement-organize
+  - slug: wf-indie-finance-compliance-remind
+    name: 报税节点提醒
+    path: workflows/wf-indie-finance-compliance-remind
+    version: 1.0.0
+    phase: P2
+    calls:
+    - scheduled-dispatch
+  - slug: wf-indie-finance-doc-gen
+    name: 合规文档生成
+    path: workflows/wf-indie-finance-doc-gen
+    version: 1.0.0
+    phase: P2
+    calls:
+    - privacy-policy-generator
+  - slug: wf-indie-finance-policy-digest
+    name: 政策变动解读
+    path: workflows/wf-indie-finance-policy-digest
+    version: 1.0.0
+    phase: P2
+    calls:
+    - promo-policy-matcher
+    - crossborder-tax-faq
+  knowledge_base: kb/
+  connectors: connectors/bindings.yaml
+external_dependencies:
+- repo: agent-skills-core
+  version: 1.0.0
+  skills:
+  - scheduled-dispatch
+  resolution: external
+spec_only_dependencies: []
