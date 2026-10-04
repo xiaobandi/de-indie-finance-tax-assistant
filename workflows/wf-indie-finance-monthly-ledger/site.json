@@ -1,0 +1,15 @@
+{
+  "name": "wf-indie-finance-monthly-ledger",
+  "title": "收入流水整理",
+  "kind": "workflow",
+  "owner": "de-indie-finance-tax-assistant",
+  "complexity": "M",
+  "phase": "P2",
+  "one_liner": "Stripe/Paddle/支付宝流水导入 → 发票归类 → 月度台账",
+  "pages": [
+    "docs/使用手册.html",
+    "docs/使用示例.html",
+    "docs/用户场景.html",
+    "docs/架构与流程图.html"
+  ]
+}

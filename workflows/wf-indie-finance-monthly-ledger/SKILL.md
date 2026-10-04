@@ -4,12 +4,19 @@ description: >-
   财税合规助理 的「收入流水整理」工作流：Stripe/Paddle/支付宝流水导入 → 发票归类 → 月度台账。触发方式：定时（每月）。
   当用户要完成「收入流水整理」这件事、或触发了上述条件时使用。
 license: Proprietary
+compatibility: >-
+  需要能读取工作区文件；若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。
+  跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
 metadata:
   author: PLATFORM
   version: "1.0.0"
   standard: agent-skills/v1
+  library: agent-skills-library
   layer: L2-workflow
   owner: de_indie_finance_tax_assistant
+  repo: de-indie-finance-tax-assistant
+  visibility: private_to_employee
+  delivery: employee
   complexity: M
   phase: P2
   source: library

@@ -1,0 +1,15 @@
+{
+  "name": "promo-policy-matcher",
+  "title": "优惠政策匹配",
+  "kind": "skill",
+  "owner": "de-indie-finance-tax-assistant",
+  "complexity": "S",
+  "phase": "P2",
+  "one_liner": "小微企业优惠政策与主体条件匹配（政策库 + 主体信息 → 匹配清单）",
+  "pages": [
+    "docs/使用手册.html",
+    "docs/使用示例.html",
+    "docs/用户场景.html",
+    "docs/架构与流程图.html"
+  ]
+}

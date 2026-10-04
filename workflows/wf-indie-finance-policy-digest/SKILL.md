@@ -1,53 +1,68 @@
 ---
-name: wf-indie-finance-compliance-remind
+name: wf-indie-finance-policy-digest
 description: >-
-  财税合规助理 的「报税节点提醒」工作流：按主体类型生成年度合规日历 → 节点前 7/3/1 天三级提醒。触发方式：定时。
-  当用户要完成「报税节点提醒」这件事、或触发了上述条件时使用。
+  财税合规助理 的「政策变动解读」工作流：小微企业/跨境政策摘要 → 适用性匹配 → 推送。触发方式：事件（政策发布）。
+  当用户要完成「政策变动解读」这件事、或触发了上述条件时使用。
 license: Proprietary
+compatibility: >-
+  需要能读取工作区文件；若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。
+  跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
 metadata:
   author: PLATFORM
   version: "1.0.0"
   standard: agent-skills/v1
+  library: agent-skills-library
   layer: L2-workflow
   owner: de_indie_finance_tax_assistant
+  repo: de-indie-finance-tax-assistant
+  visibility: private_to_employee
+  delivery: employee
   complexity: S
   phase: P2
-  source: library
+  source: new
 ---
 
-# 报税节点提醒
+# 政策变动解读
 
-> 归属：**财税合规助理**（`de-indie-finance-tax-assistant`）　触发：定时　
+> 归属：**财税合规助理**（`de-indie-finance-tax-assistant`）　触发：事件（政策发布）　
 > 复杂度 S　阶段 P2
 
 ## 一、这条工作流解决什么
 
-按主体类型生成年度合规日历 → 节点前 7/3/1 天三级提醒
+小微企业/跨境政策摘要 → 适用性匹配 → 推送
 
-**业务收益**：防罚款止损，单次漏报代价 ≥¥500
+**业务收益**：补贴/优惠命中即赚回年费
 
 ## 二、调用的 SKILL（必填列，逐条锁定版本）
 
 | 技能名 | slug | 来源仓 | 版本 |
 |---|---|---|---|
-| `定时排期` | `scheduled-dispatch` | core | v1.0.0 |
+| `优惠政策匹配` | `promo-policy-matcher` | 本仓 | v1.0.0 |
+| `跨境税务 FAQ` | `crossborder-tax-faq` | 本仓 | v1.0.0 |
 
 > 公共技能来自 `agent-skills-core@1.0.0`，本仓库只做外部依赖引用，
 > **不内联复制**其正文——这是三层仓库体系的硬规则，避免同一能力多份副本各自漂移。
 
 ## 三、执行步骤（每步四要素齐备）
 
-### 步骤 1：按主体类型生成年度合规日历
+### 步骤 1：小微企业/跨境政策摘要
 
-- **做**：按主体类型生成年度合规日历
+- **做**：小微企业/跨境政策摘要
 - **输入来源**：用户提供的原始材料（工作流第 1 步没有「上一步」）/ 本员工知识库 `kb/` / 连接器只读数据；三者皆空时必须停在 G1 闸门
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式
 
-### 步骤 2：节点前 7/3/1 天三级提醒
+### 步骤 2：适用性匹配
 
-- **做**：节点前 7/3/1 天三级提醒
+- **做**：适用性匹配
 - **输入来源**：步骤 1 的产出 / 本员工知识库 `kb/` / 连接器只读数据
+- **依据与结论**：把本步结论对应到具体输入项
+- **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式
+
+### 步骤 3：推送
+
+- **做**：推送
+- **输入来源**：步骤 2 的产出 / 本员工知识库 `kb/` / 连接器只读数据
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式
 

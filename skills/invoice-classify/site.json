@@ -1,0 +1,15 @@
+{
+  "name": "invoice-classify",
+  "title": "发票归类",
+  "kind": "skill",
+  "owner": "de-indie-finance-tax-assistant",
+  "complexity": "M",
+  "phase": "P2",
+  "one_liner": "发票/流水按科目自动归类（流水文件 → 分类台账）",
+  "pages": [
+    "docs/使用手册.html",
+    "docs/使用示例.html",
+    "docs/用户场景.html",
+    "docs/架构与流程图.html"
+  ]
+}
