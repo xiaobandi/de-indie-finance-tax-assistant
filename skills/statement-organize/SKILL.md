@@ -2,7 +2,7 @@
 name: statement-organize
 description: >-
   把多平台收款流水统一格式化，产出可核算的统一台账。当用户提到流水整理、对账、流水合并、收款汇总、statement organize、reconcile payments 时使用——即使用户没有直接说出上述关键词，只要意图吻合也应触发。
-license: Proprietary
+license: Apache-2.0
 compatibility: >-
   需要能读取工作区文件。若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
 metadata:

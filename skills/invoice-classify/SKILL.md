@@ -2,7 +2,7 @@
 name: invoice-classify
 description: >-
   把发票与流水按会计科目自动归类，产出分类台账。当用户提到发票归类、票据分类、科目归类、记账分类、invoice classification、expense categorization 时使用——即使用户没有直接说出上述关键词，只要意图吻合也应触发。
-license: Proprietary
+license: Apache-2.0
 compatibility: >-
   需要能读取工作区文件。若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
 metadata:

@@ -3,7 +3,7 @@ name: wf-indie-finance-policy-digest
 description: >-
   财税合规助理 的「政策变动解读」工作流：小微企业/跨境政策摘要 → 适用性匹配 → 推送。触发方式：事件（政策发布）。
   当用户要完成「政策变动解读」这件事、或触发了上述条件时使用。
-license: Proprietary
+license: Apache-2.0
 compatibility: >-
   需要能读取工作区文件；若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。
   跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。

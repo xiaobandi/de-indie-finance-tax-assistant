@@ -16,7 +16,7 @@ metadata:
   - GitHub
   - 闲鱼
   - 淘宝
-  license: Proprietary
+  license: Apache-2.0
   version: 1.0.0
 spec:
   positioning: 一人公司的"合规哨兵"：节点不遗漏、文档不踩坑

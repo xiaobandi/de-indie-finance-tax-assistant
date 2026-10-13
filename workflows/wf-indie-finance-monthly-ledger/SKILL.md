@@ -3,7 +3,7 @@ name: wf-indie-finance-monthly-ledger
 description: >-
   财税合规助理 的「收入流水整理」工作流：Stripe/Paddle/支付宝流水导入 → 发票归类 → 月度台账。触发方式：定时（每月）。
   当用户要完成「收入流水整理」这件事、或触发了上述条件时使用。
-license: Proprietary
+license: Apache-2.0
 compatibility: >-
   需要能读取工作区文件；若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。
   跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
